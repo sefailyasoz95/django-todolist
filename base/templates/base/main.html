@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@300&display=swap" rel="stylesheet" />
+		<title>To Do Items</title>
+		<style>
+			body {
+				background-color: #131313;
+				font-family: "Source Code Pro", monospace;
+
+				display: flex;
+				align-items: center;
+				justify-content: center;
+			}
+			* {
+				color: #888;
+			}
+			a {
+				text-decoration: none;
+				color: dodgerblue;
+			}
+			input {
+				color: black;
+			}
+			.container {
+				background-color: #232323;
+				margin: auto;
+				box-shadow: 2px 2px 13px -4px rgba(255, 255, 255, 0.21);
+				padding: 20px;
+			}
+			td {
+				padding: 5px;
+				border: 1px solid white;
+				border-radius: 10px;
+				margin: 15px;
+			}
+			th {
+				padding: 5px;
+				border: 1px solid white;
+				border-radius: 10px;
+			}
+			table {
+				padding: 10px;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="container">{%block content%} {%endblock content%}</div>
+	</body>
+</html>

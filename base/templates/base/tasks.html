@@ -1,4 +1,4 @@
-{%if request.user.is_authenticated%}
+{%extends "base/main.html"%} {%block content%} {%if request.user.is_authenticated%}
 <p>{{request.user}}</p>
 <a href="{% url 'logout' %}">Logout</a>
 {%else%}
@@ -7,16 +7,24 @@
 <hr />
 <h1>my todo list</h1>
 <a href="{%url 'createTask' %}">Create Task</a>
+
+<form method="GET">
+	<input type="text" placeholder="Search..." name="searching-for" value="{{search_input}}" />
+	<input type="submit" value="Search" />
+</form>
+
 <table>
 	<tr>
 		<th>Item</th>
+		<th>Actions</th>
 	</tr>
 	{% for task in tasks %}
 	<tr>
 		<td>{{task.title}}</td>
-		<td><a href='{% url "taskDetail" task.id %}'>View</a></td>
-		<td><a href='{% url "updateTask" task.id %}'>Edit</a></td>
-		<td><a href='{% url "deleteTask" task.id %}'>Delete</a></td>
+		<td>
+			<a href='{% url "updateTask" task.id %}'>Edit</a>
+			<a href='{% url "deleteTask" task.id %}'>Delete</a>
+		</td>
 	</tr>
 	{%empty%}
 	<h3>no items in list</h3>
@@ -26,3 +34,5 @@
 		Finished Tasks {{count}}
 	</tr>
 </table>
+
+{%endblock content%}
